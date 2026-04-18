@@ -36,6 +36,7 @@ font-size:50px;
 color:var(--gold);
 }
 
+/* INPUT */
 input{
 padding:12px;
 width:260px;
@@ -52,21 +53,33 @@ cursor:pointer;
 border-radius:8px;
 }
 
-/* LOCK */
-.locked{
-filter:blur(5px);
-pointer-events:none;
-opacity:.4;
-}
-
 /* GRID */
 .container{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:20px;
 padding:40px;
+position:relative;
 }
 
+/* OVERLAY BLOQUEIO */
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.92);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:5;
+}
+
+.overlay h2{
+color:var(--gold);
+margin-bottom:10px;
+}
+
+/* CARD */
 .card{
 background:#0f0f0f;
 border:1px solid #222;
@@ -115,25 +128,15 @@ border-radius:12px;
 max-width:500px;
 }
 
-.modal-box h2{
-color:var(--gold);
-}
-
-.modal-box p{
-margin-top:10px;
-line-height:1.5;
-opacity:.85;
-}
-
 .buy{
-margin-top:15px;
 display:block;
-text-align:center;
+margin-top:15px;
 padding:12px;
 background:var(--gold);
 color:black;
-font-weight:bold;
+text-align:center;
 text-decoration:none;
+font-weight:bold;
 border-radius:8px;
 }
 
@@ -146,7 +149,6 @@ color:white;
 width:100%;
 cursor:pointer;
 }
-
 </style>
 </head>
 
@@ -154,20 +156,25 @@ cursor:pointer;
 
 <header>
 <h1>🏛 Elite E-books</h1>
-<p>Digite seu e-mail para liberar os e-books</p>
+<p>Digite um e-mail válido para liberar</p>
+</header>
 
-<input type="email" id="email" placeholder="Seu e-mail">
+<div class="container">
+
+<!-- BLOQUEIO -->
+<div class="overlay" id="lock">
+<h2>Digite seu e-mail</h2>
+
+<input type="email" id="email" placeholder="seuemail@gmail.com">
 <br><br>
 <button onclick="unlock()">LIBERAR ACESSO</button>
 
-</header>
+</div>
 
-<!-- EBOOKS -->
-<div class="container locked" id="ebooks">
-
+<!-- EBOOK -->
 <div class="card" onclick="openModal(
 'Renda com Milhas',
-'Aprenda a transformar milhas em dinheiro real. Estratégias completas para iniciantes e avançados.',
+'Aprenda a transformar milhas em dinheiro real com estratégias completas.',
 'https://arthurkg770-ops.github.io/Manual-da-Renda-com-Milhas-/'
 )">
 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
@@ -178,7 +185,7 @@ cursor:pointer;
 
 <div class="card" onclick="openModal(
 'IA para Autônomos',
-'Use inteligência artificial para criar serviços e ganhar dinheiro online.',
+'Use inteligência artificial para criar renda online e automatizar serviços.',
 'https://arthurkg770-ops.github.io/Guia-Pr-tico-de-Intelig-ncia-Artificial-para-Aut-nomos-Prestadores-de-Servi-o-/'
 )">
 <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
@@ -187,22 +194,12 @@ cursor:pointer;
 </div>
 </div>
 
-<div class="card" onclick="openModal(
-'Instagram do Zero',
-'Cresça no Instagram com estratégias virais e monetização.',
-'https://arthurkg770-ops.github.io/Como-Crescer-no-Instagram-do-Zero/'
-)">
-<img src="https://images.unsplash.com/photo-1557804506-669a67965ba0">
-<div class="content">
-<div class="title">📘 Instagram do Zero</div>
-</div>
-</div>
-
 </div>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
 <div class="modal-box">
+
 <h2 id="title"></h2>
 <p id="text"></p>
 
@@ -217,17 +214,23 @@ COMPRAR AGORA
 
 <script>
 
+// VALIDA EMAIL REAL
+function validarEmail(email){
+return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 function unlock(){
 let email = document.getElementById("email").value;
 
-if(!email){
-alert("Digite seu e-mail");
+if(!validarEmail(email)){
+alert("Digite um e-mail válido");
 return;
 }
 
-document.getElementById("ebooks").classList.remove("locked");
+document.getElementById("lock").style.display="none";
 }
 
+// MODAL
 function openModal(title,text,link){
 document.getElementById("modal").style.display="flex";
 document.getElementById("title").innerText=title;
