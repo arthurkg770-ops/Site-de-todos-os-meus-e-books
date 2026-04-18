@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Elite E-books | Acesso Premium</title>
+<title>Elite E-books | Coleção Completa</title>
 
 <style>
 *{
@@ -22,117 +22,103 @@ body{
 /* HERO */
 .hero{
   text-align:center;
-  padding:120px 20px;
+  padding:110px 20px;
   background:radial-gradient(circle at top,#1a1a1a,#000);
   border-bottom:1px solid gold;
 }
 
 .hero h1{
-  font-size:64px;
+  font-size:58px;
   color:gold;
-  letter-spacing:3px;
 }
 
 .hero p{
   opacity:0.7;
   margin-top:10px;
-  font-size:18px;
-}
-
-/* BADGE */
-.badge{
-  display:inline-block;
-  margin-top:20px;
-  padding:8px 16px;
-  background:gold;
-  color:black;
-  font-weight:bold;
-  border-radius:30px;
 }
 
 /* PRICE */
 .price-box{
-  margin-top:25px;
+  margin-top:20px;
 }
 
 .old{
   text-decoration:line-through;
   opacity:0.5;
-  font-size:20px;
 }
 
 .new{
   color:#00ff99;
-  font-size:34px;
+  font-size:30px;
+  font-weight:bold;
+}
+
+/* BADGE */
+.badge{
+  display:inline-block;
+  margin-top:15px;
+  background:gold;
+  color:black;
+  padding:8px 16px;
+  border-radius:30px;
   font-weight:bold;
 }
 
 /* CTA */
 .cta{
   display:inline-block;
-  margin-top:30px;
-  padding:16px 34px;
+  margin-top:25px;
+  padding:14px 30px;
   background:gold;
   color:black;
   font-weight:bold;
   text-decoration:none;
-  border-radius:12px;
-  transition:0.3s;
-  font-size:16px;
+  border-radius:10px;
 }
 
-.cta:hover{
-  transform:scale(1.07);
-  background:#ffd700;
-}
-
-/* SECTION TITLE */
+/* TITLE */
 .section-title{
   text-align:center;
   margin-top:50px;
-  font-size:28px;
+  font-size:26px;
   color:gold;
 }
 
 /* GRID */
 .container{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
-  padding:60px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  padding:50px;
 }
 
 /* CARD */
 .card{
   background:#0f0f0f;
   border:1px solid #222;
-  border-radius:16px;
+  border-radius:14px;
   overflow:hidden;
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-8px);
   border-color:gold;
-  box-shadow:0 0 20px rgba(255,215,0,0.1);
 }
 
-/* IMAGE */
 .card img{
   width:100%;
-  height:180px;
+  height:160px;
   object-fit:cover;
   filter:brightness(0.85);
 }
 
-/* CONTENT */
 .content{
-  padding:18px;
+  padding:15px;
 }
 
 .title{
   color:gold;
-  font-size:16px;
   font-weight:bold;
 }
 
@@ -142,16 +128,15 @@ body{
   margin:10px 0;
 }
 
-/* BUTTON */
 .card a{
   display:block;
   text-align:center;
-  padding:12px;
+  padding:10px;
   background:gold;
   color:black;
   font-weight:bold;
   text-decoration:none;
-  border-radius:10px;
+  border-radius:8px;
 }
 
 /* SECURITY */
@@ -165,7 +150,7 @@ body{
 /* FOOTER */
 footer{
   text-align:center;
-  padding:30px;
+  padding:25px;
   background:#000;
   border-top:1px solid gold;
   font-size:12px;
@@ -177,73 +162,125 @@ footer{
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <h1>🏛 ELITE E-BOOKS</h1>
-  <p>Biblioteca digital premium estilo Old Money</p>
+  <p>Coleção completa de conhecimento digital premium</p>
 
-  <div class="badge">🔥 ACESSO IMEDIATO + OFERTA LIMITADA</div>
+  <div class="badge">🔥 OFERTA: R$ 49,90 → R$ 19,90</div>
 
   <div class="price-box">
-    <div class="old">De R$ 49,90 cada</div>
-    <div class="new">Por apenas R$ 19,90</div>
+    <div class="old">Valor original R$ 49,90 por e-book</div>
+    <div class="new">Apenas R$ 19,90 cada</div>
   </div>
 
-  <a class="cta" href="#ebooks">ACESSAR CONTEÚDO</a>
+  <a class="cta" href="#ebooks">ACESSAR COLEÇÃO</a>
 </div>
 
 <div class="security">
-🔐 Estrutura otimizada com boas práticas: links externos seguros + rel="noopener noreferrer" + recomendação HTTPS (GitHub Pages)
+🔐 Estrutura otimizada + links seguros + rel="noopener noreferrer" + hospedagem recomendada em HTTPS (GitHub Pages)
 </div>
 
-<!-- TITLE -->
-<div class="section-title">📚 BIBLIOTECA DE E-BOOKS</div>
+<div class="section-title">📚 COLEÇÃO COMPLETA (10 E-BOOKS)</div>
 
-<!-- PRODUCTS -->
 <div id="ebooks" class="container">
 
+<!-- 1 -->
 <div class="card">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
 <div class="content">
 <div class="title">✈️ Renda com Milhas</div>
-<div class="desc">Estratégias para ganhar dinheiro com viagens</div>
+<div class="desc">Ganhe dinheiro com viagens e pontos</div>
 <a href="https://arthurkg770-ops.github.io/Manual-da-Renda-com-Milhas-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
+<!-- 2 -->
 <div class="card">
-<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c" alt="">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
 <div class="content">
 <div class="title">🤖 IA para Autônomos</div>
-<div class="desc">Use IA para automatizar sua renda</div>
+<div class="desc">Automatize serviços com inteligência artificial</div>
 <a href="https://arthurkg770-ops.github.io/Guia-Pr-tico-de-Intelig-ncia-Artificial-para-Aut-nomos-Prestadores-de-Servi-o-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
+<!-- 3 -->
 <div class="card">
-<img src="https://images.unsplash.com/photo-1557804506-669a67965ba0" alt="">
+<img src="https://images.unsplash.com/photo-1557804506-669a67965ba0">
 <div class="content">
 <div class="title">📘 Instagram do Zero</div>
-<div class="desc">Crescimento rápido e estratégico</div>
+<div class="desc">Cresça do absoluto zero</div>
 <a href="https://arthurkg770-ops.github.io/Como-Crescer-no-Instagram-do-Zero/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
+<!-- 4 -->
 <div class="card">
-<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
 <div class="content">
 <div class="title">💰 Vendas Online</div>
-<div class="desc">Como vender produtos digitais todos os dias</div>
+<div class="desc">Venda produtos digitais todos os dias</div>
 <a href="https://arthurkg770-ops.github.io/101-Dicas-Para-Vender-Infoprodutos/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
+<!-- 5 -->
 <div class="card">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
 <div class="content">
 <div class="title">🤖 Ganhar com IA</div>
-<div class="desc">Automatize renda com tecnologia</div>
+<div class="desc">Renda automatizada com tecnologia</div>
 <a href="https://arthurkg770-ops.github.io/COMO-USAR-IA-PARA-GANHAR-DINHEIRO-ChatGPT-e-Ferramentas-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+<div class="content">
+<div class="title">📱 Celular do Zero</div>
+<div class="desc">Ganhar dinheiro sem aparecer</div>
+<a href="https://arthurkg770-ops.github.io/Como-ganhar-dinheiro-com-celular-do-zero-sem-aparecer-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1522202221229-5cae1d6c5f0a">
+<div class="content">
+<div class="title">🚀 Primeira Venda</div>
+<div class="desc">Faça sua primeira venda em 7 dias</div>
+<a href="https://arthurkg770-ops.github.io/Como-Fazer-Sua-Primeira-Venda-na-Internet-em-7-Dias-ebook-e-descri-ao/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d">
+<div class="content">
+<div class="title">💸 Renda Extra</div>
+<div class="desc">101 ideias sem investir dinheiro</div>
+<a href="https://arthurkg770-ops.github.io/101-Ideias-de-Renda-Extra-Sem-Investir/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1553877522-43269d4ea984">
+<div class="content">
+<div class="title">🏋️ Emagrecimento</div>
+<div class="desc">101 dicas práticas para emagrecer</div>
+<a href="https://arthurkg770-ops.github.io/101-Dicas-para-Emagrecer/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+<div class="content">
+<div class="title">📊 Infoprodutos</div>
+<div class="desc">Como vender produtos digitais</div>
+<a href="https://arthurkg770-ops.github.io/101-Dicas-Para-Vender-Infoprodutos/#comprar" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
