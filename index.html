@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Elite E-books | Loja Digital Premium</title>
+<title>Elite E-books | Loja Premium</title>
 
 <style>
 *{
@@ -28,15 +28,13 @@ body{
 }
 
 .hero h1{
-  font-size:60px;
+  font-size:58px;
   color:gold;
-  letter-spacing:2px;
 }
 
 .hero p{
   opacity:0.7;
   margin-top:10px;
-  font-size:18px;
 }
 
 .badge{
@@ -49,7 +47,6 @@ body{
   border-radius:30px;
 }
 
-/* PRICE */
 .price-box{
   margin-top:20px;
 }
@@ -65,7 +62,6 @@ body{
   font-weight:bold;
 }
 
-/* CTA */
 .cta{
   display:inline-block;
   margin-top:25px;
@@ -75,14 +71,6 @@ body{
   font-weight:bold;
   text-decoration:none;
   border-radius:10px;
-}
-
-/* SECTION */
-.section-title{
-  text-align:center;
-  margin-top:50px;
-  font-size:26px;
-  color:gold;
 }
 
 /* GRID */
@@ -100,10 +88,11 @@ body{
   border-radius:14px;
   overflow:hidden;
   transition:0.3s;
+  cursor:pointer;
 }
 
 .card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-8px);
   border-color:gold;
 }
 
@@ -129,7 +118,6 @@ body{
   margin:10px 0;
 }
 
-/* BUTTON */
 .btn{
   display:block;
   text-align:center;
@@ -141,14 +129,6 @@ body{
   border-radius:8px;
 }
 
-/* SECURITY */
-.security{
-  text-align:center;
-  font-size:11px;
-  opacity:0.5;
-  padding:10px;
-}
-
 /* FOOTER */
 footer{
   text-align:center;
@@ -157,6 +137,47 @@ footer{
   border-top:1px solid gold;
   font-size:12px;
   opacity:0.6;
+}
+
+/* MODAL */
+#modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-box{
+  background:#111;
+  padding:20px;
+  border:1px solid gold;
+  border-radius:12px;
+  max-width:420px;
+  text-align:center;
+}
+
+.modal-box h2{
+  color:gold;
+  margin-bottom:10px;
+}
+
+.modal-box p{
+  opacity:0.8;
+  font-size:14px;
+}
+
+.close{
+  margin-top:15px;
+  padding:10px;
+  background:gold;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
 }
 </style>
 
@@ -169,80 +190,61 @@ footer{
   <h1>🏛 ELITE E-BOOKS</h1>
   <p>Loja digital premium estilo Old Money</p>
 
-  <div class="badge">🔥 OFERTA ESPECIAL</div>
+  <div class="badge">🔥 OFERTA: R$ 49,90 → R$ 19,90</div>
 
   <div class="price-box">
-    <div class="old">De R$ 49,90</div>
-    <div class="new">Por apenas R$ 19,90</div>
+    <div class="old">Preço original por e-book</div>
+    <div class="new">Apenas R$ 19,90</div>
   </div>
 
   <a class="cta" href="#ebooks">VER COLEÇÃO</a>
 </div>
 
-<div class="security">
-🔐 Site otimizado com boas práticas: links seguros + rel="noopener noreferrer" + recomendação HTTPS (GitHub Pages/Netlify)
-</div>
-
-<div class="section-title">📚 COLEÇÃO DE E-BOOKS (10 PRODUTOS)</div>
-
-<!-- PRODUCTS -->
+<!-- GRID -->
 <div id="ebooks" class="container">
 
-<div class="card">
+<!-- 1 -->
+<div class="card" onclick="openModal('Renda com Milhas','Aprenda como transformar pontos de cartão e viagens em dinheiro real usando estratégias simples e inteligentes.')">
 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
 <div class="content">
 <div class="title">✈️ Renda com Milhas</div>
-<div class="desc">Ganhe dinheiro viajando com pontos</div>
+<div class="desc">Ganhe dinheiro com viagens</div>
 <a class="btn" href="https://arthurkg770-ops.github.io/Manual-da-Renda-com-Milhas-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
-<div class="card">
+<!-- 2 -->
+<div class="card" onclick="openModal('IA para Autônomos','Use inteligência artificial para automatizar serviços, economizar tempo e aumentar sua renda.')">
 <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
 <div class="content">
 <div class="title">🤖 IA para Autônomos</div>
-<div class="desc">Use IA para gerar renda automática</div>
+<div class="desc">Ganhe com inteligência artificial</div>
 <a class="btn" href="https://arthurkg770-ops.github.io/Guia-Pr-tico-de-Intelig-ncia-Artificial-para-Aut-nomos-Prestadores-de-Servi-o-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
-<div class="card">
+<!-- 3 -->
+<div class="card" onclick="openModal('Instagram do Zero','Aprenda a crescer no Instagram do absoluto zero usando estratégias orgânicas.')">
 <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0">
 <div class="content">
 <div class="title">📘 Instagram do Zero</div>
-<div class="desc">Cresça do absoluto zero</div>
+<div class="desc">Crescimento rápido</div>
 <a class="btn" href="https://arthurkg770-ops.github.io/Como-Crescer-no-Instagram-do-Zero/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
-<div class="card">
+<!-- 4 -->
+<div class="card" onclick="openModal('Vendas Online','Estratégias práticas para vender produtos digitais todos os dias.')">
 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
 <div class="content">
 <div class="title">💰 Vendas Online</div>
-<div class="desc">Venda produtos digitais todos os dias</div>
+<div class="desc">Venda todos os dias</div>
 <a class="btn" href="https://arthurkg770-ops.github.io/101-Dicas-Para-Vender-Infoprodutos/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
-<div class="content">
-<div class="title">🤖 Ganhar com IA</div>
-<div class="desc">Automatize sua renda com tecnologia</div>
-<a class="btn" href="https://arthurkg770-ops.github.io/COMO-USAR-IA-PARA-GANHAR-DINHEIRO-ChatGPT-e-Ferramentas-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
-<div class="content">
-<div class="title">📱 Celular do Zero</div>
-<div class="desc">Ganhe dinheiro sem aparecer</div>
-<a class="btn" href="https://arthurkg770-ops.github.io/Como-ganhar-dinheiro-com-celular-do-zero-sem-aparecer-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
-</div>
-</div>
-
-<div class="card">
+<!-- 5 (CORRIGIDO) -->
+<div class="card" onclick="openModal('Primeira Venda em 7 Dias','Passo a passo simples para você fazer sua primeira venda na internet em até 7 dias.')">
 <img src="https://images.unsplash.com/photo-1522202221229-5cae1d6c5f0a">
 <div class="content">
 <div class="title">🚀 Primeira Venda</div>
@@ -251,38 +253,72 @@ footer{
 </div>
 </div>
 
-<div class="card">
+<!-- 6 -->
+<div class="card" onclick="openModal('Celular do Zero','Ganhe dinheiro apenas com celular, sem aparecer.')">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+<div class="content">
+<div class="title">📱 Celular do Zero</div>
+<div class="desc">Sem aparecer</div>
+<a class="btn" href="https://arthurkg770-ops.github.io/Como-ganhar-dinheiro-com-celular-do-zero-sem-aparecer-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="card" onclick="openModal('Renda Extra','101 ideias para ganhar dinheiro sem investir nada.')">
 <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d">
 <div class="content">
 <div class="title">💸 Renda Extra</div>
-<div class="desc">101 ideias sem investimento</div>
+<div class="desc">Sem investimento</div>
 <a class="btn" href="https://arthurkg770-ops.github.io/101-Ideias-de-Renda-Extra-Sem-Investir/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
-<div class="card">
+<!-- 8 -->
+<div class="card" onclick="openModal('Emagrecimento','101 dicas práticas para emagrecer com saúde.')">
 <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984">
 <div class="content">
 <div class="title">🏋️ Emagrecimento</div>
-<div class="desc">101 dicas práticas de saúde</div>
+<div class="desc">Saúde e disciplina</div>
 <a class="btn" href="https://arthurkg770-ops.github.io/101-Dicas-para-Emagrecer/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
-<div class="card">
+<!-- 9 -->
+<div class="card" onclick="openModal('Infoprodutos','Aprenda a vender produtos digitais de forma profissional.')">
 <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
 <div class="content">
 <div class="title">📊 Infoprodutos</div>
-<div class="desc">Como vender produtos digitais</div>
+<div class="desc">Vendas digitais</div>
 <a class="btn" href="https://arthurkg770-ops.github.io/101-Dicas-Para-Vender-Infoprodutos/#comprar" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
 </div>
 
+<!-- MODAL -->
+<div id="modal">
+  <div class="modal-box">
+    <h2 id="modal-title"></h2>
+    <p id="modal-text"></p>
+    <button class="close" onclick="closeModal()">FECHAR</button>
+  </div>
+</div>
+
 <footer>
-© 2026 Elite E-books — Sistema Empresarial Digital
+© 2026 Elite E-books — Todos os direitos reservados
 </footer>
+
+<script>
+function openModal(title, text){
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('modal-title').innerText = title;
+  document.getElementById('modal-text').innerText = text;
+}
+
+function closeModal(){
+  document.getElementById('modal').style.display = 'none';
+}
+</script>
 
 </body>
 </html>
