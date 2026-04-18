@@ -3,19 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Elite E-books</title>
+
+<!-- Segurança básica -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
 
 <style>
 :root{
 --gold:#d4af37;
 --bg:#050505;
+--card:#0f0f0f;
 }
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
@@ -23,70 +30,98 @@ background:var(--bg);
 color:white;
 }
 
-/* HEADER */
-header{
+/* HERO */
+.hero{
 text-align:center;
-padding:80px 20px;
-background:radial-gradient(circle,#1a1a1a,#000);
-border-bottom:1px solid var(--gold);
+padding:70px 20px;
+background:linear-gradient(180deg,#111,#000);
+border-bottom:1px solid rgba(212,175,55,.3);
 }
 
-header h1{
-font-size:48px;
+.hero h1{
 color:var(--gold);
+font-size:42px;
+margin-bottom:10px;
 }
 
-/* GRID */
-.container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-padding:40px;
-position:relative;
+.hero p{
+opacity:.8;
+margin-bottom:20px;
 }
 
-/* BLOQUEIO */
-.overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.94);
+/* EMAIL */
+.email-box{
 display:flex;
 justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:5;
+gap:10px;
+flex-wrap:wrap;
 }
 
-.overlay input{
-padding:12px;
+.email-box input{
+padding:14px;
 width:260px;
 border:none;
 border-radius:8px;
 }
 
-.overlay button{
-margin-top:10px;
-padding:12px 20px;
+.email-box button{
+padding:14px 25px;
 background:var(--gold);
 border:none;
+border-radius:8px;
 font-weight:bold;
 cursor:pointer;
-border-radius:8px;
+}
+
+/* GRID */
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+position:relative;
+}
+
+/* LOCK */
+.lock{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.95);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:5;
 }
 
 /* CARD */
 .card{
-background:#0f0f0f;
-border:1px solid #222;
+background:var(--card);
 border-radius:14px;
 overflow:hidden;
 cursor:pointer;
 transition:.3s;
+border:1px solid #1a1a1a;
+position:relative;
 }
 
 .card:hover{
 transform:translateY(-6px);
 border-color:var(--gold);
+}
+
+.badge{
+position:absolute;
+top:10px;
+left:10px;
+background:var(--gold);
+color:black;
+font-size:12px;
+padding:4px 8px;
+border-radius:6px;
+font-weight:bold;
 }
 
 .card img{
@@ -95,14 +130,14 @@ height:170px;
 object-fit:cover;
 }
 
-.content{
+.card-content{
 padding:15px;
 }
 
 .title{
 color:var(--gold);
-font-weight:bold;
 font-size:14px;
+font-weight:bold;
 }
 
 /* MODAL */
@@ -125,163 +160,54 @@ max-width:520px;
 width:100%;
 }
 
-.action{
+.btn{
 display:block;
 margin-top:15px;
-padding:12px;
 background:var(--gold);
 color:black;
 text-align:center;
+padding:12px;
+border-radius:8px;
 text-decoration:none;
 font-weight:bold;
-border-radius:8px;
 }
 
 .close{
 margin-top:10px;
-padding:10px;
 background:#333;
-border:none;
 color:white;
+border:none;
+padding:10px;
 width:100%;
 cursor:pointer;
+border-radius:8px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+opacity:.6;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>🏛 Elite E-books</h1>
-<p>Digite um e-mail válido para liberar</p>
-</header>
+<section class="hero">
+<h1>🏛 Elite E-books Premium</h1>
+<p>Digite um e-mail válido para liberar todos os e-books</p>
 
-<div class="container">
-
-<div class="overlay" id="lock">
-<h2>Digite seu e-mail</h2>
+<div class="email-box">
 <input type="email" id="email" placeholder="seuemail@gmail.com">
 <button onclick="unlock()">LIBERAR ACESSO</button>
 </div>
+</section>
 
-<!-- 1 -->
-<div class="card" onclick="openModal(
-'✈️ Manual da Renda com Milhas',
-'Aprenda a transformar milhas em dinheiro real com estratégias completas passo a passo.',
-'https://arthurkg770-ops.github.io/Manual-da-Renda-com-Milhas-/'
-)">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-<div class="content">
-<div class="title">✈️ Manual da Renda com Milhas</div>
-</div>
-</div>
+<div class="container" id="grid">
 
-<!-- 2 -->
-<div class="card" onclick="openModal(
-'🤖 Guia Prático de Inteligência Artificial para Autônomos (Prestadores de Serviço)',
-'Use inteligência artificial para automatizar serviços e gerar renda online.',
-'https://arthurkg770-ops.github.io/Guia-Pr-tico-de-Intelig-ncia-Artificial-para-Aut-nomos-Prestadores-de-Servi-o-/'
-)">
-<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
-<div class="content">
-<div class="title">🤖 Guia Prático de Inteligência Artificial para Autônomos</div>
-</div>
-</div>
-
-<!-- 3 -->
-<div class="card" onclick="openModal(
-'🏋️ 101 Dicas para Emagrecer',
-'Dicas práticas para emagrecer com hábitos simples e eficazes.',
-'https://arthurkg770-ops.github.io/101-Dicas-para-Emagrecer/'
-)">
-<img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74">
-<div class="content">
-<div class="title">🏋️ 101 Dicas para Emagrecer</div>
-</div>
-</div>
-
-<!-- 4 -->
-<div class="card" onclick="openModal(
-'💰 101 Dicas Para Vender Infoprodutos',
-'Estratégias completas para vender produtos digitais.',
-'https://arthurkg770-ops.github.io/101-Dicas-Para-Vender-Infoprodutos/#comprar'
-)">
-<img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d">
-<div class="content">
-<div class="title">💰 101 Dicas Para Vender Infoprodutos</div>
-</div>
-</div>
-
-<!-- 5 -->
-<div class="card" onclick="openModal(
-'🤖 COMO USAR IA PARA GANHAR DINHEIRO (ChatGPT e Ferramentas)',
-'Aprenda a usar IA para gerar renda online.',
-'https://arthurkg770-ops.github.io/COMO-USAR-IA-PARA-GANHAR-DINHEIRO-ChatGPT-e-Ferramentas-/'
-)">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
-<div class="content">
-<div class="title">🤖 COMO USAR IA PARA GANHAR DINHEIRO</div>
-</div>
-</div>
-
-<!-- 6 -->
-<div class="card" onclick="openModal(
-'📘 Como Crescer no Instagram do Zero',
-'Estratégias completas para crescer no Instagram.',
-'https://arthurkg770-ops.github.io/Como-Crescer-no-Instagram-do-Zero/'
-)">
-<img src="https://images.unsplash.com/photo-1557804506-669a67965ba0">
-<div class="content">
-<div class="title">📘 Como Crescer no Instagram do Zero</div>
-</div>
-</div>
-
-<!-- 7 -->
-<div class="card" onclick="openModal(
-'💰 Como Ganhar Dinheiro com Celular do Zero (Sem Aparecer)',
-'Renda online usando apenas o celular.',
-'https://arthurkg770-ops.github.io/Como-ganhar-dinheiro-com-celular-do-zero-sem-aparecer-/'
-)">
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
-<div class="content">
-<div class="title">💰 Como Ganhar Dinheiro com Celular do Zero</div>
-</div>
-</div>
-
-<!-- 8 -->
-<div class="card" onclick="openModal(
-'💰 Primeira Venda em 7 Dias',
-'Faça sua primeira venda rapidamente.',
-'https://arthurkg770-ops.github.io/Como-Fazer-Sua-Primeira-Venda-na-Internet-em-7-Dias-ebook-e-descri-ao/'
-)">
-<img src="https://images.unsplash.com/photo-1522202221229-5cae1d6c5f0a">
-<div class="content">
-<div class="title">💰 Primeira Venda em 7 Dias</div>
-</div>
-</div>
-
-<!-- 9 -->
-<div class="card" onclick="openModal(
-'💰 101 Ideias de Renda Extra Sem Investir',
-'Ideias práticas para renda extra.',
-'https://arthurkg770-ops.github.io/101-Ideias-de-Renda-Extra-Sem-Investir/'
-)">
-<img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e">
-<div class="content">
-<div class="title">💰 101 Ideias de Renda Extra Sem Investir</div>
-</div>
-</div>
-
-<!-- 10 -->
-<div class="card" onclick="openModal(
-'📘 Como Crescer no TikTok Rápido (e Viralizar Vídeos)',
-'Estratégias para viralizar no TikTok.',
-'https://arthurkg770-ops.github.io/Como-Crescer-no-TikTok-R-pido-e-Viralizar-V-deos/'
-)">
-<img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb">
-<div class="content">
-<div class="title">📘 Como Crescer no TikTok Rápido</div>
-</div>
+<div class="lock" id="lock">
+<h2 style="color:#d4af37">Acesso bloqueado</h2>
+<p>Digite seu e-mail acima</p>
 </div>
 
 </div>
@@ -290,12 +216,44 @@ cursor:pointer;
 <div class="modal-box">
 <h2 id="title"></h2>
 <p id="text"></p>
-<a id="buy" class="action" target="_blank">VER E-BOOK</a>
+<a id="link" target="_blank" class="btn">VER E-BOOK</a>
 <button class="close" onclick="closeModal()">FECHAR</button>
 </div>
 </div>
 
+<footer>
+© 2026 Elite E-books
+</footer>
+
 <script>
+
+const ebooks = [
+["✈️ Manual da Renda com Milhas","Aprenda a transformar milhas em dinheiro.","https://arthurkg770-ops.github.io/Manual-da-Renda-com-Milhas-/"],
+["🤖 Guia Prático de Inteligência Artificial para Autônomos (Prestadores de Serviço)","Use IA para gerar renda.","https://arthurkg770-ops.github.io/Guia-Pr-tico-de-Intelig-ncia-Artificial-para-Aut-nomos-Prestadores-de-Servi-o-/"],
+["🏋️ 101 Dicas para Emagrecer","Dicas práticas para emagrecer.","https://arthurkg770-ops.github.io/101-Dicas-para-Emagrecer/"],
+["💰 101 Dicas Para Vender Infoprodutos","Venda infoprodutos todos os dias.","https://arthurkg770-ops.github.io/101-Dicas-Para-Vender-Infoprodutos/#comprar"],
+["🤖 COMO USAR IA PARA GANHAR DINHEIRO (ChatGPT e Ferramentas)","Ganhe dinheiro com IA.","https://arthurkg770-ops.github.io/COMO-USAR-IA-PARA-GANHAR-DINHEIRO-ChatGPT-e-Ferramentas-/"],
+["📘 Como Crescer no Instagram do Zero","Cresça no Instagram.","https://arthurkg770-ops.github.io/Como-Crescer-no-Instagram-do-Zero/"],
+["💰 Como Ganhar Dinheiro com Celular do Zero (Sem Aparecer)","Ganhe dinheiro com celular.","https://arthurkg770-ops.github.io/Como-ganhar-dinheiro-com-celular-do-zero-sem-aparecer-/"],
+["💰 Primeira Venda em 7 Dias","Faça sua primeira venda.","https://arthurkg770-ops.github.io/Como-Fazer-Sua-Primeira-Venda-na-Internet-em-7-Dias-ebook-e-descri-ao/"],
+["💰 101 Ideias de Renda Extra Sem Investir","Ideias de renda extra.","https://arthurkg770-ops.github.io/101-Ideias-de-Renda-Extra-Sem-Investir/"],
+["📘 Como Crescer no TikTok Rápido (e Viralizar Vídeos)","Cresça no TikTok.","https://arthurkg770-ops.github.io/Como-Crescer-no-TikTok-R-pido-e-Viralizar-V-deos/"]
+];
+
+const grid=document.getElementById("grid");
+
+ebooks.forEach(e=>{
+grid.innerHTML+=`
+<div class="card" onclick="openModal('${e[0]}','${e[1]}','${e[2]}')">
+<div class="badge">49,90 → 19,90</div>
+<img src="https://picsum.photos/400/300?random=${Math.random()}">
+<div class="card-content">
+<div class="title">${e[0]}</div>
+</div>
+</div>
+`;
+});
+
 function validarEmail(email){
 return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -309,20 +267,17 @@ return;
 document.getElementById("lock").style.display="none";
 }
 
-function openModal(title,text,link){
-document.getElementById("modal").style.display="flex";
-document.getElementById("title").innerText=title;
-document.getElementById("text").innerText=text;
-document.getElementById("buy").href=link;
+function openModal(t,d,l){
+modal.style.display="flex";
+title.innerText=t;
+text.innerText=d;
+link.href=l;
 }
 
 function closeModal(){
-document.getElementById("modal").style.display="none";
+modal.style.display="none";
 }
 
-window.onclick=function(e){
-if(e.target.id==="modal") closeModal();
-}
 </script>
 
 </body>
