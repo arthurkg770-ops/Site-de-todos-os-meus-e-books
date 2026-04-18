@@ -3,56 +3,255 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meu Portal</title>
+
+<title>Elite E-books | Acesso Premium</title>
 
 <style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Arial;
-    background:#0d0d0d;
-    color:white;
-    text-align:center;
+  background:#030303;
+  color:#fff;
 }
 
-h1{
-    color:gold;
-    margin-top:30px;
+/* HERO */
+.hero{
+  text-align:center;
+  padding:120px 20px;
+  background:radial-gradient(circle at top,#1a1a1a,#000);
+  border-bottom:1px solid gold;
 }
 
+.hero h1{
+  font-size:64px;
+  color:gold;
+  letter-spacing:3px;
+}
+
+.hero p{
+  opacity:0.7;
+  margin-top:10px;
+  font-size:18px;
+}
+
+/* BADGE */
+.badge{
+  display:inline-block;
+  margin-top:20px;
+  padding:8px 16px;
+  background:gold;
+  color:black;
+  font-weight:bold;
+  border-radius:30px;
+}
+
+/* PRICE */
+.price-box{
+  margin-top:25px;
+}
+
+.old{
+  text-decoration:line-through;
+  opacity:0.5;
+  font-size:20px;
+}
+
+.new{
+  color:#00ff99;
+  font-size:34px;
+  font-weight:bold;
+}
+
+/* CTA */
+.cta{
+  display:inline-block;
+  margin-top:30px;
+  padding:16px 34px;
+  background:gold;
+  color:black;
+  font-weight:bold;
+  text-decoration:none;
+  border-radius:12px;
+  transition:0.3s;
+  font-size:16px;
+}
+
+.cta:hover{
+  transform:scale(1.07);
+  background:#ffd700;
+}
+
+/* SECTION TITLE */
+.section-title{
+  text-align:center;
+  margin-top:50px;
+  font-size:28px;
+  color:gold;
+}
+
+/* GRID */
 .container{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-    max-width:400px;
-    margin:40px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+  padding:60px;
 }
 
-a{
-    background:gold;
-    color:black;
-    padding:15px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:bold;
+/* CARD */
+.card{
+  background:#0f0f0f;
+  border:1px solid #222;
+  border-radius:16px;
+  overflow:hidden;
+  transition:0.3s;
 }
 
-a:hover{
-    background:white;
+.card:hover{
+  transform:translateY(-10px);
+  border-color:gold;
+  box-shadow:0 0 20px rgba(255,215,0,0.1);
+}
+
+/* IMAGE */
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  filter:brightness(0.85);
+}
+
+/* CONTENT */
+.content{
+  padding:18px;
+}
+
+.title{
+  color:gold;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.desc{
+  font-size:13px;
+  opacity:0.7;
+  margin:10px 0;
+}
+
+/* BUTTON */
+.card a{
+  display:block;
+  text-align:center;
+  padding:12px;
+  background:gold;
+  color:black;
+  font-weight:bold;
+  text-decoration:none;
+  border-radius:10px;
+}
+
+/* SECURITY */
+.security{
+  text-align:center;
+  font-size:11px;
+  opacity:0.5;
+  padding:10px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  background:#000;
+  border-top:1px solid gold;
+  font-size:12px;
+  opacity:0.6;
 }
 </style>
+
 </head>
 
 <body>
 
-<h1>🌐 Meu Portal de Sites</h1>
+<!-- HERO -->
+<div class="hero">
+  <h1>🏛 ELITE E-BOOKS</h1>
+  <p>Biblioteca digital premium estilo Old Money</p>
 
-<div class="container">
+  <div class="badge">🔥 ACESSO IMEDIATO + OFERTA LIMITADA</div>
 
-<a href="https://google.com" target="_blank">Google</a>
-<a href="https://youtube.com" target="_blank">YouTube</a>
-<a href="https://instagram.com" target="_blank">Instagram</a>
+  <div class="price-box">
+    <div class="old">De R$ 49,90 cada</div>
+    <div class="new">Por apenas R$ 19,90</div>
+  </div>
+
+  <a class="cta" href="#ebooks">ACESSAR CONTEÚDO</a>
+</div>
+
+<div class="security">
+🔐 Estrutura otimizada com boas práticas: links externos seguros + rel="noopener noreferrer" + recomendação HTTPS (GitHub Pages)
+</div>
+
+<!-- TITLE -->
+<div class="section-title">📚 BIBLIOTECA DE E-BOOKS</div>
+
+<!-- PRODUCTS -->
+<div id="ebooks" class="container">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="">
+<div class="content">
+<div class="title">✈️ Renda com Milhas</div>
+<div class="desc">Estratégias para ganhar dinheiro com viagens</div>
+<a href="https://arthurkg770-ops.github.io/Manual-da-Renda-com-Milhas-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c" alt="">
+<div class="content">
+<div class="title">🤖 IA para Autônomos</div>
+<div class="desc">Use IA para automatizar sua renda</div>
+<a href="https://arthurkg770-ops.github.io/Guia-Pr-tico-de-Intelig-ncia-Artificial-para-Aut-nomos-Prestadores-de-Servi-o-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1557804506-669a67965ba0" alt="">
+<div class="content">
+<div class="title">📘 Instagram do Zero</div>
+<div class="desc">Crescimento rápido e estratégico</div>
+<a href="https://arthurkg770-ops.github.io/Como-Crescer-no-Instagram-do-Zero/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="">
+<div class="content">
+<div class="title">💰 Vendas Online</div>
+<div class="desc">Como vender produtos digitais todos os dias</div>
+<a href="https://arthurkg770-ops.github.io/101-Dicas-Para-Vender-Infoprodutos/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="">
+<div class="content">
+<div class="title">🤖 Ganhar com IA</div>
+<div class="desc">Automatize renda com tecnologia</div>
+<a href="https://arthurkg770-ops.github.io/COMO-USAR-IA-PARA-GANHAR-DINHEIRO-ChatGPT-e-Ferramentas-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
+</div>
+</div>
 
 </div>
+
+<footer>
+© 2026 Elite E-books — Todos os direitos reservados
+</footer>
 
 </body>
 </html>
