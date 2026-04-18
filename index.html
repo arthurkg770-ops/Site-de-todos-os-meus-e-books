@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca Premium | E-books de Alta Performance</title>
+
+<!-- SEO -->
+<meta name="description" content="Biblioteca premium de e-books sobre dinheiro, marketing digital, inteligência artificial e renda online.">
+<meta name="keywords" content="ebooks, renda extra, marketing digital, inteligência artificial, ganhar dinheiro, instagram, infoprodutos">
+<meta name="author" content="Biblioteca Premium">
+<meta property="og:title" content="Biblioteca Premium de E-books">
+<meta property="og:description" content="Aprenda a gerar renda online com e-books de alto nível">
+<meta property="og:type" content="website">
+
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="no-referrer">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#d4af37;
+  --bg:#050505;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:radial-gradient(circle at top,#111,#000);
+  color:#fff;
+}
+
+/* NAVBAR */
+nav{
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  border-bottom:1px solid rgba(212,175,55,0.2);
+  z-index:1000;
+}
+
+nav h2{
+  color:var(--gold);
+  font-family:'Playfair Display',serif;
+  margin:0;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:15px;
+  font-size:14px;
+}
+
+nav a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:80px 20px 40px;
+}
+
+.hero h1{
+  font-size:50px;
+  color:var(--gold);
+  margin:0;
+  font-family:'Playfair Display',serif;
+}
+
+.hero p{
+  color:#aaa;
+  margin-top:10px;
+}
+
+.hero .btn{
+  margin-top:25px;
+  display:inline-block;
+  padding:12px 20px;
+  background:var(--gold);
+  color:#000;
+  font-weight:bold;
+  border-radius:10px;
+  text-decoration:none;
+}
+
+.hero img{
+  width:95%;
+  max-width:900px;
+  margin-top:30px;
+  border-radius:20px;
+  border:2px solid var(--gold);
+}
+
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:30px;
+  text-align:center;
+  flex-wrap:wrap;
+}
+
+.stat{
+  border:1px solid rgba(212,175,55,0.2);
+  padding:15px;
+  border-radius:12px;
+  min-width:150px;
+}
+
+.stat h3{color:var(--gold);margin:0;}
+
+/* GRID */
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+  padding:40px;
+}
+
+.card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(212,175,55,0.25);
+  border-radius:16px;
+  padding:18px;
+  text-align:center;
+  transition:0.3s;
+  backdrop-filter:blur(12px);
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  border-color:var(--gold);
+}
+
+.card img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+.card h2{
+  font-size:15px;
+  color:var(--gold);
+}
+
+.card a{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 14px;
+  background:var(--gold);
+  color:#000;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* TESTIMONIALS */
+.testimonials{
+  text-align:center;
+  padding:40px 20px;
+}
+
+.testimonial{
+  max-width:600px;
+  margin:10px auto;
+  padding:15px;
+  border:1px solid rgba(212,175,55,0.2);
+  border-radius:12px;
+  color:#ccc;
+}
+
+/* FAQ */
+.faq{
+  padding:40px;
+}
+
+.faq h2{
+  text-align:center;
+  color:var(--gold);
+}
+
+.faq p{
+  max-width:700px;
+  margin:10px auto;
+  color:#aaa;
+}
+
+/* WhatsApp */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:14px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#777;
+  font-size:12px;
+  border-top:1px solid #222;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>Biblioteca Premium</h2>
+  <div>
+    <a href="#ebooks">E-books</a>
+    <a href="#stats">Resultados</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Transforme seu Conhecimento em Renda</h1>
+  <p>E-books premium sobre dinheiro, IA e marketing digital</p>
+  <a class="btn" href="#ebooks">Começar agora</a>
+  <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+</section>
+
+<section class="stats" id="stats">
+  <div class="stat"><h3>+8</h3><p>E-books</p></div>
+  <div class="stat"><h3>100%</h3><p>Digital</p></div>
+  <div class="stat"><h3>24h</h3><p>Acesso</p></div>
+</section>
+
+<section class="container" id="ebooks">
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+    <h2>Renda com Milhas</h2>
+    <a href="https://arthurkg770-ops.github.io/Manual-da-Renda-com-Milhas-/" target="_blank" rel="noopener">Acessar</a>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
+    <h2>IA para Autônomos</h2>
+    <a href="https://arthurkg770-ops.github.io/Guia-Pr-tico-de-Intelig-ncia-Artificial-para-Aut-nomos-Prestadores-de-Servi-o-/" target="_blank" rel="noopener">Acessar</a>
+  </div>
+
+</section>
+
+<section class="testimonials">
+  <h2 style="color:gold">Depoimentos</h2>
+  <div class="testimonial">"Comecei a aplicar e já fiz minha primeira venda."</div>
+  <div class="testimonial">"Conteúdo direto e fácil de aplicar."</div>
+</section>
+
+<section class="faq" id="faq">
+  <h2>FAQ</h2>
+  <p><b>Preciso de experiência?</b> Não, todos os e-books são para iniciantes.</p>
+  <p><b>Funciona no celular?</b> Sim, totalmente responsivo.</p>
+</section>
+
+<a class="whatsapp" href="#">💬 Suporte</a>
+
+<footer>
+© 2026 Biblioteca Premium | Site otimizado e profissional
+</footer>
+
+<script>
+window.oncontextmenu=function(){return false};
+</script>
+
+</body>
+</html>
