@@ -3,228 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Elite E-books | Loja Premium</title>
+<title>Elite E-books</title>
 
 <style>
 :root{
-  --gold:#d4af37;
-  --bg:#050505;
-  --card:#0f0f0f;
-  --border:#222;
+--gold:#d4af37;
+--bg:#050505;
 }
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
 }
 
 body{
-  background:var(--bg);
-  color:#fff;
+background:var(--bg);
+color:white;
 }
 
 /* HEADER */
 header{
-  text-align:center;
-  padding:100px 20px;
-  background:radial-gradient(circle at top,#1a1a1a,#000);
-  border-bottom:1px solid var(--gold);
+text-align:center;
+padding:90px 20px;
+background:radial-gradient(circle,#1a1a1a,#000);
+border-bottom:1px solid var(--gold);
 }
 
 header h1{
-  font-size:60px;
-  color:var(--gold);
+font-size:50px;
+color:var(--gold);
 }
 
-header p{
-  opacity:0.7;
-  margin-top:10px;
+input{
+padding:12px;
+width:260px;
+border:none;
+border-radius:8px;
+}
+
+button{
+padding:12px 20px;
+background:var(--gold);
+border:none;
+font-weight:bold;
+cursor:pointer;
+border-radius:8px;
+}
+
+/* LOCK */
+.locked{
+filter:blur(5px);
+pointer-events:none;
+opacity:.4;
 }
 
 /* GRID */
 .container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
-  padding:50px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+padding:40px;
 }
 
-/* CARD */
 .card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:14px;
-  overflow:hidden;
-  transition:0.3s ease;
-  cursor:pointer;
-  position:relative;
+background:#0f0f0f;
+border:1px solid #222;
+border-radius:14px;
+overflow:hidden;
+cursor:pointer;
+transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-8px);
-  border-color:var(--gold);
-  box-shadow:0 0 20px rgba(212,175,55,0.15);
+transform:translateY(-8px);
+border-color:var(--gold);
 }
 
 .card img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  filter:brightness(0.85);
+width:100%;
+height:170px;
+object-fit:cover;
 }
 
-/* CONTENT */
 .content{
-  padding:15px;
+padding:15px;
 }
 
 .title{
-  color:var(--gold);
-  font-weight:bold;
-  font-size:15px;
+color:var(--gold);
+font-weight:bold;
 }
 
-.desc{
-  font-size:13px;
-  opacity:0.7;
-  margin:8px 0;
-}
-
-.btn{
-  display:block;
-  text-align:center;
-  padding:10px;
-  background:var(--gold);
-  color:#000;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius:8px;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:25px;
-  background:#000;
-  border-top:1px solid var(--gold);
-  font-size:12px;
-  opacity:0.6;
-}
-
-/* 🔐 MODAL (CORRIGIDO E MAIS PROFISSIONAL) */
+/* MODAL */
 .modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.85);
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-  padding:20px;
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
 .modal-box{
-  background:#111;
-  border:1px solid var(--gold);
-  border-radius:14px;
-  padding:20px;
-  max-width:420px;
-  width:100%;
-  text-align:center;
-  animation:fade 0.2s ease-in-out;
-}
-
-@keyframes fade{
-  from{transform:scale(0.9); opacity:0;}
-  to{transform:scale(1); opacity:1;}
+background:#111;
+border:1px solid var(--gold);
+padding:25px;
+border-radius:12px;
+max-width:500px;
 }
 
 .modal-box h2{
-  color:var(--gold);
-  margin-bottom:10px;
+color:var(--gold);
 }
 
 .modal-box p{
-  font-size:14px;
-  opacity:0.8;
-  line-height:1.4;
+margin-top:10px;
+line-height:1.5;
+opacity:.85;
+}
+
+.buy{
+margin-top:15px;
+display:block;
+text-align:center;
+padding:12px;
+background:var(--gold);
+color:black;
+font-weight:bold;
+text-decoration:none;
+border-radius:8px;
 }
 
 .close{
-  margin-top:15px;
-  padding:10px;
-  background:var(--gold);
-  border:none;
-  font-weight:bold;
-  cursor:pointer;
-  border-radius:8px;
+margin-top:10px;
+padding:10px;
+background:#333;
+border:none;
+color:white;
+width:100%;
+cursor:pointer;
 }
-</style>
 
+</style>
 </head>
 
 <body>
 
 <header>
-<h1>🏛 ELITE E-BOOKS</h1>
-<p>Loja digital premium estilo Old Money</p>
+<h1>🏛 Elite E-books</h1>
+<p>Digite seu e-mail para liberar os e-books</p>
+
+<input type="email" id="email" placeholder="Seu e-mail">
+<br><br>
+<button onclick="unlock()">LIBERAR ACESSO</button>
+
 </header>
 
-<!-- GRID -->
-<div class="container">
+<!-- EBOOKS -->
+<div class="container locked" id="ebooks">
 
-<!-- 1 -->
 <div class="card" onclick="openModal(
 'Renda com Milhas',
-'Aprenda a transformar milhas e pontos de cartão em dinheiro real e viagens lucrativas com estratégias simples e seguras.'
+'Aprenda a transformar milhas em dinheiro real. Estratégias completas para iniciantes e avançados.',
+'https://arthurkg770-ops.github.io/Manual-da-Renda-com-Milhas-/'
 )">
 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
 <div class="content">
 <div class="title">✈️ Renda com Milhas</div>
-<div class="desc">Ganhe dinheiro viajando</div>
-<a class="btn" href="https://arthurkg770-ops.github.io/Manual-da-Renda-com-Milhas-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
-<!-- 2 -->
 <div class="card" onclick="openModal(
 'IA para Autônomos',
-'Use inteligência artificial para automatizar serviços, ganhar produtividade e escalar sua renda digital.'
+'Use inteligência artificial para criar serviços e ganhar dinheiro online.',
+'https://arthurkg770-ops.github.io/Guia-Pr-tico-de-Intelig-ncia-Artificial-para-Aut-nomos-Prestadores-de-Servi-o-/'
 )">
 <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
 <div class="content">
 <div class="title">🤖 IA para Autônomos</div>
-<div class="desc">Automação de renda</div>
-<a class="btn" href="https://arthurkg770-ops.github.io/Guia-Pr-tico-de-Intelig-ncia-Artificial-para-Aut-nomos-Prestadores-de-Servi-o-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
-<!-- 3 -->
 <div class="card" onclick="openModal(
 'Instagram do Zero',
-'Estratégias práticas para crescer no Instagram do zero e gerar audiência real e engajada.'
+'Cresça no Instagram com estratégias virais e monetização.',
+'https://arthurkg770-ops.github.io/Como-Crescer-no-Instagram-do-Zero/'
 )">
 <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0">
 <div class="content">
 <div class="title">📘 Instagram do Zero</div>
-<div class="desc">Crescimento orgânico</div>
-<a class="btn" href="https://arthurkg770-ops.github.io/Como-Crescer-no-Instagram-do-Zero/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
-</div>
-</div>
-
-<!-- 4 -->
-<div class="card" onclick="openModal(
-'Primeira Venda em 7 Dias',
-'Passo a passo direto para você fazer sua primeira venda online em até 7 dias usando estratégias simples.'
-)">
-<img src="https://images.unsplash.com/photo-1522202221229-5cae1d6c5f0a">
-<div class="content">
-<div class="title">🚀 Primeira Venda</div>
-<div class="desc">Venda em 7 dias</div>
-<a class="btn" href="https://arthurkg770-ops.github.io/Como-Fazer-Sua-Primeira-Venda-na-Internet-em-7-Dias-ebook-e-descri-ao/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
@@ -232,38 +202,49 @@ footer{
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-  <div class="modal-box">
-    <h2 id="modalTitle"></h2>
-    <p id="modalText"></p>
-    <button class="close" onclick="closeModal()">FECHAR</button>
-  </div>
+<div class="modal-box">
+<h2 id="title"></h2>
+<p id="text"></p>
+
+<a id="buy" class="buy" target="_blank">
+COMPRAR AGORA
+</a>
+
+<button class="close" onclick="closeModal()">FECHAR</button>
+
+</div>
 </div>
 
-<footer>
-© 2026 Elite E-books — Loja Premium Segura
-</footer>
-
 <script>
-// 🔐 MODAL SEGURO E ESTÁVEL
-function openModal(title, text){
-  const modal = document.getElementById('modal');
-  document.getElementById('modalTitle').innerText = title;
-  document.getElementById('modalText').innerText = text;
-  modal.style.display = 'flex';
+
+function unlock(){
+let email = document.getElementById("email").value;
+
+if(!email){
+alert("Digite seu e-mail");
+return;
 }
 
-// FECHAR MODAL
+document.getElementById("ebooks").classList.remove("locked");
+}
+
+function openModal(title,text,link){
+document.getElementById("modal").style.display="flex";
+document.getElementById("title").innerText=title;
+document.getElementById("text").innerText=text;
+document.getElementById("buy").href=link;
+}
+
 function closeModal(){
-  document.getElementById('modal').style.display = 'none';
+document.getElementById("modal").style.display="none";
 }
 
-// FECHAR AO CLICAR FORA
-window.onclick = function(e){
-  const modal = document.getElementById('modal');
-  if(e.target === modal){
-    modal.style.display = 'none';
-  }
+window.onclick=function(e){
+if(e.target.id==="modal"){
+closeModal()
 }
+}
+
 </script>
 
 </body>
