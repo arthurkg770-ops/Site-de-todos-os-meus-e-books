@@ -4,20 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Elite E-books | Funil SaaS Completo</title>
+<title>Elite E-books | Loja Premium</title>
 
 <style>
 :root{
   --gold:#d4af37;
   --bg:#050505;
   --card:#0f0f0f;
+  --border:#222;
 }
 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Arial;
+  font-family:Arial, sans-serif;
 }
 
 body{
@@ -25,50 +26,26 @@ body{
   color:#fff;
 }
 
-/* NAV */
-nav{
-  display:flex;
-  justify-content:space-between;
-  padding:15px 30px;
-  background:#000;
+/* HEADER */
+header{
+  text-align:center;
+  padding:100px 20px;
+  background:radial-gradient(circle at top,#1a1a1a,#000);
   border-bottom:1px solid var(--gold);
 }
 
-nav h1{
+header h1{
+  font-size:60px;
   color:var(--gold);
 }
 
-/* HERO */
-.hero{
-  text-align:center;
-  padding:100px 20px;
-  background:radial-gradient(circle,#1a1a1a,#000);
-}
-
-.hero h2{
-  font-size:52px;
-  color:var(--gold);
-}
-
-.hero p{
+header p{
   opacity:0.7;
   margin-top:10px;
 }
 
-.btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 24px;
-  background:var(--gold);
-  color:#000;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius:10px;
-  cursor:pointer;
-}
-
 /* GRID */
-.grid{
+.container{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:20px;
@@ -78,44 +55,66 @@ nav h1{
 /* CARD */
 .card{
   background:var(--card);
-  border:1px solid #222;
-  border-radius:12px;
+  border:1px solid var(--border);
+  border-radius:14px;
   overflow:hidden;
+  transition:0.3s ease;
+  cursor:pointer;
+  position:relative;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:var(--gold);
+  box-shadow:0 0 20px rgba(212,175,55,0.15);
 }
 
 .card img{
   width:100%;
   height:160px;
   object-fit:cover;
-  cursor:pointer;
+  filter:brightness(0.85);
 }
 
-.card-content{
+/* CONTENT */
+.content{
   padding:15px;
 }
 
-.card h3{
+.title{
   color:var(--gold);
+  font-weight:bold;
+  font-size:15px;
 }
 
-.price{
-  color:#00ff99;
+.desc{
+  font-size:13px;
+  opacity:0.7;
   margin:8px 0;
 }
 
-/* CART */
-.cart{
-  position:fixed;
-  right:20px;
-  top:80px;
-  background:#111;
-  padding:15px;
-  border:1px solid var(--gold);
-  width:220px;
-  border-radius:10px;
+.btn{
+  display:block;
+  text-align:center;
+  padding:10px;
+  background:var(--gold);
+  color:#000;
+  font-weight:bold;
+  text-decoration:none;
+  border-radius:8px;
 }
 
-/* MODAL */
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:25px;
+  background:#000;
+  border-top:1px solid var(--gold);
+  font-size:12px;
+  opacity:0.6;
+}
+
+/* 🔐 MODAL (CORRIGIDO E MAIS PROFISSIONAL) */
 .modal{
   display:none;
   position:fixed;
@@ -123,31 +122,45 @@ nav h1{
   background:rgba(0,0,0,0.85);
   justify-content:center;
   align-items:center;
+  z-index:999;
+  padding:20px;
 }
 
 .modal-box{
   background:#111;
-  padding:20px;
   border:1px solid var(--gold);
-  width:320px;
-  text-align:center;
-}
-
-/* PAGE SWITCH */
-.page{
-  display:none;
-}
-
-.active{
-  display:block;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
+  border-radius:14px;
   padding:20px;
-  opacity:0.6;
-  border-top:1px solid #222;
+  max-width:420px;
+  width:100%;
+  text-align:center;
+  animation:fade 0.2s ease-in-out;
+}
+
+@keyframes fade{
+  from{transform:scale(0.9); opacity:0;}
+  to{transform:scale(1); opacity:1;}
+}
+
+.modal-box h2{
+  color:var(--gold);
+  margin-bottom:10px;
+}
+
+.modal-box p{
+  font-size:14px;
+  opacity:0.8;
+  line-height:1.4;
+}
+
+.close{
+  margin-top:15px;
+  padding:10px;
+  background:var(--gold);
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+  border-radius:8px;
 }
 </style>
 
@@ -155,101 +168,64 @@ footer{
 
 <body>
 
-<!-- NAV -->
-<nav>
+<header>
 <h1>🏛 ELITE E-BOOKS</h1>
-<span>Funil SaaS</span>
-</nav>
+<p>Loja digital premium estilo Old Money</p>
+</header>
 
-<!-- ================= LANDING PAGE ================= -->
-<div id="landing" class="page active">
+<!-- GRID -->
+<div class="container">
 
-<div class="hero">
-  <h2>📈 Sistema de Renda Digital</h2>
-  <p>Funil completo estilo Hotmart + SaaS</p>
-
-  <input id="email" placeholder="Digite seu e-mail" style="padding:12px;width:250px;margin-top:20px;border-radius:8px;border:none;">
-  <br>
-  <button class="btn" onclick="goToSales()">Entrar no Funil</button>
-</div>
-
-</div>
-
-<!-- ================= SALES PAGE ================= -->
-<div id="sales" class="page">
-
-<div class="hero">
-<h2>🏛 Elite E-books</h2>
-<p>De R$49,90 por apenas R$19,90</p>
-<button class="btn" onclick="alert('Redirecionando para checkout Kiwify...')">
-🔥 Comprar Acesso Completo
-</button>
-</div>
-
-<!-- CART -->
-<div class="cart">
-<h4>🛒 Carrinho</h4>
-<p id="cartCount">0 itens</p>
-<p>Total: R$ <span id="total">0</span></p>
-</div>
-
-<!-- PRODUCTS -->
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
-onclick="openModal('Renda com Milhas','Ganhe dinheiro com viagens e pontos')">
-<div class="card-content">
-<h3>✈️ Milhas</h3>
-<div class="price">R$19,90</div>
+<!-- 1 -->
+<div class="card" onclick="openModal(
+'Renda com Milhas',
+'Aprenda a transformar milhas e pontos de cartão em dinheiro real e viagens lucrativas com estratégias simples e seguras.'
+)">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<div class="content">
+<div class="title">✈️ Renda com Milhas</div>
+<div class="desc">Ganhe dinheiro viajando</div>
+<a class="btn" href="https://arthurkg770-ops.github.io/Manual-da-Renda-com-Milhas-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c"
-onclick="openModal('IA para Autônomos','Automatize sua renda com IA')">
-<div class="card-content">
-<h3>🤖 IA</h3>
-<div class="price">R$19,90</div>
+<!-- 2 -->
+<div class="card" onclick="openModal(
+'IA para Autônomos',
+'Use inteligência artificial para automatizar serviços, ganhar produtividade e escalar sua renda digital.'
+)">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+<div class="content">
+<div class="title">🤖 IA para Autônomos</div>
+<div class="desc">Automação de renda</div>
+<a class="btn" href="https://arthurkg770-ops.github.io/Guia-Pr-tico-de-Intelig-ncia-Artificial-para-Aut-nomos-Prestadores-de-Servi-o-/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1557804506-669a67965ba0"
-onclick="openModal('Instagram','Cresça do zero no Instagram')">
-<div class="card-content">
-<h3>📘 Instagram</h3>
-<div class="price">R$19,90</div>
+<!-- 3 -->
+<div class="card" onclick="openModal(
+'Instagram do Zero',
+'Estratégias práticas para crescer no Instagram do zero e gerar audiência real e engajada.'
+)">
+<img src="https://images.unsplash.com/photo-1557804506-669a67965ba0">
+<div class="content">
+<div class="title">📘 Instagram do Zero</div>
+<div class="desc">Crescimento orgânico</div>
+<a class="btn" href="https://arthurkg770-ops.github.io/Como-Crescer-no-Instagram-do-Zero/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1522202221229-5cae1d6c5f0a"
-onclick="openModal('Primeira Venda','Venda em 7 dias online')">
-<div class="card-content">
-<h3>🚀 Venda</h3>
-<div class="price">R$19,90</div>
+<!-- 4 -->
+<div class="card" onclick="openModal(
+'Primeira Venda em 7 Dias',
+'Passo a passo direto para você fazer sua primeira venda online em até 7 dias usando estratégias simples.'
+)">
+<img src="https://images.unsplash.com/photo-1522202221229-5cae1d6c5f0a">
+<div class="content">
+<div class="title">🚀 Primeira Venda</div>
+<div class="desc">Venda em 7 dias</div>
+<a class="btn" href="https://arthurkg770-ops.github.io/Como-Fazer-Sua-Primeira-Venda-na-Internet-em-7-Dias-ebook-e-descri-ao/" target="_blank" rel="noopener noreferrer">ACESSAR</a>
 </div>
-</div>
-
-</div>
-
-</div>
-
-<!-- ================= THANK YOU PAGE ================= -->
-<div id="thanks" class="page">
-
-<div class="hero">
-<h2>✅ Compra Confirmada</h2>
-<p>Seu acesso está liberado</p>
-
-<a class="btn" href="https://drive.google.com" target="_blank">
-📦 Baixar E-books
-</a>
-
-<br><br>
-
-<button class="btn" onclick="goToSales()">Voltar à loja</button>
 </div>
 
 </div>
@@ -257,42 +233,36 @@ onclick="openModal('Primeira Venda','Venda em 7 dias online')">
 <!-- MODAL -->
 <div class="modal" id="modal">
   <div class="modal-box">
-    <h3 id="m-title"></h3>
-    <p id="m-text"></p>
-    <button class="btn" onclick="closeModal()">Fechar</button>
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+    <button class="close" onclick="closeModal()">FECHAR</button>
   </div>
 </div>
 
 <footer>
-© 2026 Elite E-books — Funil SaaS Completo
+© 2026 Elite E-books — Loja Premium Segura
 </footer>
 
 <script>
-
-let cart = 0;
-
-function goToSales(){
-  document.getElementById('landing').classList.remove('active');
-  document.getElementById('sales').classList.add('active');
+// 🔐 MODAL SEGURO E ESTÁVEL
+function openModal(title, text){
+  const modal = document.getElementById('modal');
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalText').innerText = text;
+  modal.style.display = 'flex';
 }
 
-function goToThanks(){
-  document.getElementById('sales').classList.remove('active');
-  document.getElementById('thanks').classList.add('active');
-}
-
-function openModal(title,text){
-  document.getElementById('modal').style.display='flex';
-  document.getElementById('m-title').innerText=title;
-  document.getElementById('m-text').innerText=text;
-
-  cart++;
-  document.getElementById('cartCount').innerText = cart + " itens";
-  document.getElementById('total').innerText = cart * 19.90;
-}
-
+// FECHAR MODAL
 function closeModal(){
-  document.getElementById('modal').style.display='none';
+  document.getElementById('modal').style.display = 'none';
+}
+
+// FECHAR AO CLICAR FORA
+window.onclick = function(e){
+  const modal = document.getElementById('modal');
+  if(e.target === modal){
+    modal.style.display = 'none';
+  }
 }
 </script>
 
